@@ -5,7 +5,9 @@ def to_rna(dna_strand):
         'T' : 'A',
         'A' : 'U'
     }
-    rna = list(dna_strand)
-    rna = map(lambda x: convert[x], rna)
-    return "".join(rna)
+    try:
+        dna_strand = map(lambda x: convert[x], dna_strand)
+    except:
+        raise Exception("invalid character found")
+    return "".join(dna_strand)
 
